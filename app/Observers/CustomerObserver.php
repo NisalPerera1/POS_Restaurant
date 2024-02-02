@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Observers;
+
+use App\Models\Customer;
+
+class CustomerObserver
+{
+
+    public function creating(Customer $customer)
+    {
+        $customer->invoice_number = 'INV-' . now()->format('YmdHis');
+    }
+
+    public function created(Customer $customer): void
+    {
+        //
+    }
+
+    /**
+     * Handle the Customer "updated" event.
+     */
+    public function updated(Customer $customer): void
+    {
+        //
+    }
+
+    /**
+     * Handle the Customer "deleted" event.
+     */
+    public function deleted(Customer $customer): void
+    {
+        //
+    }
+
+    /**
+     * Handle the Customer "restored" event.
+     */
+    public function restored(Customer $customer): void
+    {
+        //
+    }
+
+    /**
+     * Handle the Customer "force deleted" event.
+     */
+    public function forceDeleted(Customer $customer): void
+    {
+        //
+    }
+}
